@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px;
+  background: #fce4ec;
+}
+
+.links a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #555;
+}
+
+.links a.activo {
+  color: #c2185b;
+  font-weight: bold;
+  border-bottom: 2px solid #c2185b;
+}
+
+main {
+  padding: 24px;
+}
