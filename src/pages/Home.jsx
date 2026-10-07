@@ -3,20 +3,25 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [verPromo, setVerPromo] = useState(true);
+
   const [hora] = useState(() => new Date().getHours());
 
-  const saludo = hora < 12 ? 'Buenos días' : hora < 19 ? 'Buenas tardes' : 'Buenas noches';
+  const saludo =
+    hora < 12 ? 'Buenos días' : hora < 19 ? 'Buenas tardes' : 'Buenas noches';
 
   return (
     <section className="home">
       <div className="hero">
-        <p className="hero__saludo">{saludo}, bienvenido a Huancayo 🌄</p>
+        <p className="hero__saludo">{saludo}.</p>
+
         <h1 className="hero__title">
-          Flores frescas del Valle del Mantaro, <br />
-          entregadas el mismo día
+          Flores del Valle del Mantaro, <br />
+          armadas el mismo día del pedido.
         </h1>
+
         <p className="hero__sub">
-          Ramos, boxes y arreglos armados a mano en nuestro taller de Av. Real.
+          Trabajamos con flores que llegan de huertas de Sicaya y Hualhuas. Si el
+          pedido entra antes de las 3 de la tarde, sale el mismo día.
         </p>
 
         <div className="hero__actions">
@@ -24,19 +29,22 @@ export default function Home() {
             Ver catálogo
           </Link>
           <Link to="/pedido" className="btn btn--outline">
-            Hacer un pedido
+            Armar un pedido
           </Link>
         </div>
       </div>
 
-      {/* Condicional con && : solo se pinta si verPromo es true */}
       {verPromo && (
         <div className="promo">
           <p>
-            🎉 <strong>Promo Huancayo:</strong> 15% de descuento en pedidos dentro de la
-            ciudad pagando con Yape.
+            Hasta fin de mes, 15% de descuento en pedidos dentro de Huancayo
+            pagando con Yape.
           </p>
-          <button className="promo__close" onClick={() => setVerPromo(false)}>
+          <button
+            className="promo__close"
+            onClick={() => setVerPromo(false)}
+            aria-label="Cerrar aviso"
+          >
             Cerrar
           </button>
         </div>
@@ -44,22 +52,33 @@ export default function Home() {
 
       {!verPromo && (
         <button className="btn btn--ghost" onClick={() => setVerPromo(true)}>
-          Mostrar promoción
+          Ver aviso
         </button>
       )}
 
       <div className="info-grid">
         <div className="info-card">
-          <h3>Delivery</h3>
-          <p>El Tambo, Chilca, Huancayo y San Agustín de Cajas.</p>
+          <h3>Dónde entregamos</h3>
+          <p>
+            Huancayo, El Tambo, Chilca y San Agustín de Cajas. Otras zonas se
+            coordinan por WhatsApp.
+          </p>
         </div>
+
         <div className="info-card">
-          <h3>Personalizado</h3>
-          <p>Elige colores, tamaño y tarjeta dedicatoria.</p>
+          <h3>Pedidos a medida</h3>
+          <p>
+            Nos dices el color, el tamaño y para quién es. Te mandamos una foto
+            antes de que salga el reparto.
+          </p>
         </div>
+
         <div className="info-card">
-          <h3>Horario</h3>
-          <p>Lunes a sábado, 8:00 a.m. – 8:00 p.m.</p>
+          <h3>Horario de atención</h3>
+          <p>
+            Lunes a sábado, de 8 de la mañana a 8 de la noche. Domingos solo
+            pedidos programados.
+          </p>
         </div>
       </div>
     </section>

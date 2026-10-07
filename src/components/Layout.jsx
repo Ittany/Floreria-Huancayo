@@ -4,15 +4,19 @@ import Navbar from './Navbar';
 export default function Layout() {
   return (
     <div className="app-shell">
-      <Navbar />
+      <Navbar
+        logoUrl="https://tse2.mm.bing.net/th/id/OIP.sCJkDUSY4x56MFqOD86_7gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+        nombreTienda="El Ramo Huanca"
+      />
+
       <main className="app-main">
-        {/* Aquí se renderiza la página hija según la URL.
-            Equivale a {children} en un componente de composición normal. */}
         <Outlet />
       </main>
+
       <footer className="app-footer">
-        <p>🌸 Florería "El Ramo Huanca" — Huancayo, Junín</p>
-        <p>Av. Real 123 · +51 999 888 777</p>
+        <p className="app-footer__nombre">Brittany Gonzales Quiñonez</p>
+        <p>Ingeniería de Sistemas — Noveno ciclo</p>
+        <p>Huancayo, Junín</p>
       </footer>
     </div>
   );
