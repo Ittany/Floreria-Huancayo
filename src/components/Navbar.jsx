@@ -1,22 +1,26 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
-function Navbar() {
+const claseLink = ({ isActive }) => (isActive ? 'nav-link nav-link--active' : 'nav-link');
+
+export default function Navbar() {
   return (
-    <nav className="navbar">
-      <h2>🌸 Flowers Huancayo</h2>
-      <div className="links">
-        <NavLink to="/" end className={({ isActive }) => (isActive ? 'activo' : '')}>
+    <header className="navbar">
+      <div className="navbar__brand">
+        <span className="navbar__logo">🌸</span>
+        <span>El Ramo Huanca</span>
+      </div>
+
+      <nav className="navbar__links">
+        <NavLink to="/" className={claseLink} end>
           Inicio
         </NavLink>
-        <NavLink to="/catalogo" className={({ isActive }) => (isActive ? 'activo' : '')}>
+        <NavLink to="/catalogo" className={claseLink}>
           Catálogo
         </NavLink>
-        <NavLink to="/pedido" className={({ isActive }) => (isActive ? 'activo' : '')}>
-          Pedido
+        <NavLink to="/pedido" className={claseLink}>
+          Hacer pedido
         </NavLink>
-      </div>
-    </nav>
-  )
+      </nav>
+    </header>
+  );
 }
-
-export default Navbar
