@@ -1,24 +1,23 @@
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import List from './pages/List'
-import Form from './pages/Form'
-import NotFound from './pages/NotFound'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Catalogo from './pages/Catalogo';
+import Pedido from './pages/Pedido';
+import NotFound from './pages/NotFound';
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalogo" element={<List />} />
-          <Route path="/pedido" element={<Form />} />
+    <BrowserRouter>
+      <Routes>
+        {/* Layout es la "cáscara": Navbar + Footer + <Outlet /> */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="catalogo" element={<Catalogo />} />
+          <Route path="pedido" element={<Pedido />} />
+          {/* Ruta comodín 404 */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-    </>
-  )
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
